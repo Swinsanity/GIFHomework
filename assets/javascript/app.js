@@ -1,3 +1,5 @@
+console.log("Henlo")
+
 $(document).ready(function() {
 
     var gifs = [
