@@ -70,5 +70,16 @@ $(document).ready(function() {
         }
     });
 
-    
-})
+    $("#add-gif").on("click", function(event) {
+        event.preventDefault();
+        var newGif = $("input").eq(0).val();
+
+        if (newGif.length > 2) {
+            gifs.push(newGif);
+        }
+
+        makeButtons(gifs, "gif-button", "#gif-buttons");
+    });
+
+    makeButtons(gifs, "gif-button", "#gif-buttons");
+});
