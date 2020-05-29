@@ -6,7 +6,7 @@ $(document).ready(function() {
         "approval", "tired", "no", "cats", "fail", "what", "hearts", "bye"
     ];
 
-    function makeButtons(arrayToUse, classToAdd, areaToAddTo) {
+    function populateButtons(arrayToUse, classToAdd, areaToAddTo) {
         $(areaToAddTo).empty();
 
         for (var i = 0; i <arrayToUse.length; i++) {
@@ -25,7 +25,7 @@ $(document).ready(function() {
         $(this).addClass("active");
 
         var type = $(this).attr("data-type");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=vsWajxKdCbeh1Lt7r5Swp1EuByTDTg9Q";
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=vsWajxKdCbeh1Lt7r5Swp1EuByTDTg9Q&kimit=10";
 
         $.ajax({
             url: queryURL,
@@ -80,8 +80,8 @@ $(document).ready(function() {
             gifs.push(newGif);
         }
 
-        makeButtons(gifs, "gif-button", "#gif-buttons");
+        populateButtons(gifs, "gif-button", "#gif-buttons");
     });
 
-    makeButtons(gifs, "gif-button", "#gif-buttons");
+    populateButtons(gifs, "gif-button", "#gif-buttons");
 });
