@@ -24,6 +24,38 @@ $(document).ready(function() {
 
         var type = $(this).attr("data-type");
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=vsWajxKdCbeh1Lt7r5Swp1EuByTDTg9Q";
-        
-    })
+
+        $.ajax({
+            url: queryURL
+            method: "GET"
+        })
+            .then(function(response) {
+                var results = response.data;
+
+                for (var i = 0; i < results.length; i++) {
+                    var gifDiv = $("<div class=\"gif-item\">");
+
+                    var rating = results[i].rating;
+
+                    var p = $("<p>").text("Rating: " + rating);
+
+                    var animated = results[i].images.fixed_height.url;
+                    var still = results[i].images.fixed_height_still.url;
+
+                    var animalImage = $("<img>");
+                    gifImage.attr("src", still);
+                    gifImage.attr("data-still", still);
+                    gifImage.attr("data-animate", animated);
+                    gifImage.attr("data-state", "still");
+                    gifImage.addClass("gif-image");
+                    
+                    gifDiv.append(p);
+                    gifDiv.append(gifImage);
+
+                    $("#gifs").append(gifDiv);
+                }
+            });
+    });
+
+    
 })
