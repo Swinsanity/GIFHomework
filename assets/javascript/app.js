@@ -16,4 +16,14 @@ $(document).ready(function() {
         }
 
     }
+
+    $(document).on("click", ".gif-button", function() {
+        $("#gifs").empty();
+        $(".gif-button").removeClass("active");
+        $(this).addClass("active");
+
+        var type = $(this).attr("data-type");
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=vsWajxKdCbeh1Lt7r5Swp1EuByTDTg9Q";
+        
+    })
 })
