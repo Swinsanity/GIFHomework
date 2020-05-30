@@ -44,7 +44,7 @@ $(document).ready(function() {
                     var animated = results[i].images.fixed_height.url;
                     var still = results[i].images.fixed_height_still.url;
 
-                    var animalImage = $("<img>");
+                    var gifImage = $("<img>");
                     gifImage.attr("src", still);
                     gifImage.attr("data-still", still);
                     gifImage.attr("data-animate", animated);
@@ -80,8 +80,8 @@ $(document).ready(function() {
             gifs.push(newGif);
         }
 
-        populateButtons(gifs, "gif-button", "#gif-buttons");
+        populateButtons(gifs, "gif-button", "#gif-button");
     });
 
-    populateButtons(gifs, "gif-button", "#gif-buttons");
+    populateButtons(gifs, "gif-button", "#gif-button");
 });
